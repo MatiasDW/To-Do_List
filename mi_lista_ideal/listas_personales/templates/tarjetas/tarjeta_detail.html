@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ tarjeta.titulo }}</h1>
+  <p>{{ tarjeta.descripcion }}</p>
+  <a href="{% url 'tarjeta_editar' pk=tarjeta.pk %}">Editar</a>
+{% endblock %}

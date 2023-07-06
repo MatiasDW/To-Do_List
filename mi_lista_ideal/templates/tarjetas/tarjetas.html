@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Tarjetas</h1>
+  <ul>
+    {% for tarjeta in tarjetas %}
+      <li>
+        <a href="{% url 'tarjeta_detail' pk=tarjeta.pk %}">
+          {{ tarjeta.titulo }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No hay tarjetas.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'tarjeta_nueva' %}">Nueva tarjeta</a>
+{% endblock %}

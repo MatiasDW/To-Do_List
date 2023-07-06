@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Tableros</h1>
+  <ul>
+    {% for tablero in tableros %}
+      <li><a href="{% url 'tablero_detail' pk=tablero.pk %}">{{ tablero.nombre }}</a></li>
+    {% empty %}
+      <li>No hay tableros disponibles.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'tablero_nuevo' %}">Crear un nuevo tablero</a>
+{% endblock %}

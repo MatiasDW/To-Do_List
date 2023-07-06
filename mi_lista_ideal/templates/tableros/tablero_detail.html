@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ tablero.nombre }}</h1>
+  <p>{{ tablero.descripcion }}</p>
+  <h2>Listas:</h2>
+  <ul>
+    {% for lista in tablero.listas.all %}
+      <li><a href="{% url 'lista_detail' pk=lista.pk %}">{{ lista.nombre }}</a></li>
+    {% empty %}
+      <li>No hay listas en este tablero.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'tablero_editar' pk=tablero.pk %}">Editar este tablero</a>
+{% endblock %}

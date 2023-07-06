@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Listas</h1>
+  <ul>
+    {% for lista in listas %}
+      <li><a href="{% url 'lista_detail' lista.pk %}">{{ lista.nombre }}</a></li>
+    {% empty %}
+      <li>No hay listas para mostrar.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'lista_new' %}">Crear una nueva lista</a>
+{% endblock %}
+

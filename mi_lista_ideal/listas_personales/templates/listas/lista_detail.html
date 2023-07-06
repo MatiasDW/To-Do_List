@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ lista.nombre }}</h1>
+  <p>{{ lista.descripcion }}</p>
+  <h2>Tareas</h2>
+  <ul>
+    {% for tarea in lista.tareas.all %}
+      <li>{{ tarea.nombre }}</li>
+    {% empty %}
+      <li>No hay tareas para mostrar.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'lista_edit' lista.pk %}">Editar lista</a>
+  <form action="{% url 'lista_delete' lista.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Eliminar lista">
+  </form>
+{% endblock %}
